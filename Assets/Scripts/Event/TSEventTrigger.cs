@@ -6,6 +6,9 @@ public class TSEventTrigger : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider enterColl)
     {
+        if (!enterColl.transform.CompareTag("Player"))
+            return;
+
         if(firstEvent != null)
             firstEvent.StartEvent();
 

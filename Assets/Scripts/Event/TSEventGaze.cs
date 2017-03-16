@@ -3,7 +3,7 @@
 public class TSEventGaze : TSEvent
 {
     [SerializeField] private Transform centerEyeAnchor;
-    [SerializeField] private string targetTag;
+    [SerializeField] private GameObject target;
 
     protected override void OnStart()
     {
@@ -18,7 +18,7 @@ public class TSEventGaze : TSEvent
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.CompareTag(targetTag))
+            if (hit.transform.gameObject == target)
                 QuitEvent();
         }
     }

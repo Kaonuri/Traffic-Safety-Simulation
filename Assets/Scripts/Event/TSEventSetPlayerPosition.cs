@@ -15,7 +15,9 @@ public class TSEventSetPlayerPosition : TSEvent
         Vector3 direction = (stopPoint.position - GameManager.Instacne.player.transform.position).normalized;
         player.navMeshAgent.Move(direction * player.speed * Time.deltaTime);
 
-        if (Vector3.SqrMagnitude(stopPoint.position - player.transform.position) < 1f)
+        print(Vector3.SqrMagnitude(stopPoint.position - player.transform.position));
+
+        if (Vector3.SqrMagnitude(stopPoint.position - player.transform.position) < 1.5f)
         {
             QuitEvent();
         }
