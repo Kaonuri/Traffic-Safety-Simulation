@@ -3,23 +3,54 @@
 public class TSEventGaze : TSEvent
 {
     [SerializeField] private Transform centerEyeAnchor;
-    [SerializeField] private GameObject target;
+    [SerializeField] private TSGazeTrigger[] gazeTriggers;
+
+    public bool allGazeTriggerIsClear
+    {
+        get
+        {
+            foreach (var gazeTrigger in gazeTriggers)
+            {
+                if (gazeTrigger.clear == false)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 
     protected override void OnStart()
     {
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        Vector3 forward = centerEyeAnchor.TransformDirection(Vector3.forward);
+        Raycast();
 
+        if(allGazeTriggerIsClear == true)
+            QuitEvent();
+    }
+
+    private void Raycast()
+    {
         RaycastHit hit;
         Ray ray = new Ray(centerEyeAnchor.position, centerEyeAnchor.forward);
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.gameObject == target)
-                QuitEvent();
+            var currentGazeTrigger = hit.transform.GetComponent<TSGazeTrigger>();
+
+            if (currentGazeTrigger == null)
+                return;
+
+            foreach (var gazeTrigger in gazeTriggers)
+            {
+                if (currentGazeTrigger == gazeTrigger)
+                {
+                    currentGazeTrigger.Clear();                    
+                }
+            }
         }
     }
 
