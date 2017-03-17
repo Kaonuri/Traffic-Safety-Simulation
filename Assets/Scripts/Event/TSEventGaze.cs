@@ -28,7 +28,7 @@ public class TSEventGaze : TSEvent
     {
         Raycast();
 
-        if(allGazeTriggerIsClear == true)
+        if (allGazeTriggerIsClear == true)
             QuitEvent();
     }
 

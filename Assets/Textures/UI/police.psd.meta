@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 2d85bb7aedd0e1843acc171513def17e
-timeCreated: 1489559655
+guid: c3edcb0552110fe408e82d32af73cffb
+timeCreated: 1489633268
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: police_0
+    21300002: police_1
+    21300004: police_2
+    21300006: police_3
+    21300008: police_4
+    21300010: police_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -30,11 +36,11 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,9 +48,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -58,9 +64,103 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: police_0
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 57
+        width: 292
+        height: 738
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: police_1
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 57
+        width: 292
+        height: 738
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: police_2
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 56
+        width: 292
+        height: 739
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: police_3
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 49
+        width: 262
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: police_4
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 49
+        width: 269
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: police_5
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 48
+        width: 244
+        height: 747
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

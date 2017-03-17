@@ -15,7 +15,7 @@ public class TSEventActivateWindow : TSEvent
     {
         GameManager.Instacne.windowManager.hierarchyManager.ActivateHierarchy(hierachyName);
         canvasGroup = GameManager.Instacne.windowManager.hierarchyManager.GetHierarchy(hierachyName).GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0f;
+        canvasGroup.alpha = 0f;        
         elapsedTime = 0f;
     }
 
