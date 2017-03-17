@@ -6,7 +6,7 @@ public class SelectScene : SceneHandlerBase
     [SerializeField] private AirVRPointer _airVRPointer;
 
     public override void OnEnterScene()
-    {
+    {        
         _airVRPointer.isEnabled = true;
     }
 
