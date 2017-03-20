@@ -5,14 +5,20 @@ public class SelectScene : SceneHandlerBase
 {
     [SerializeField] private AirVRPointer _airVRPointer;
 
+    private bool sceneLoading = false;
+
     public override void OnEnterScene()
     {        
         _airVRPointer.isEnabled = true;
     }
 
-    public void ChangeScene(Object nextScene)
+    public void ChangeScene(string nextSceneName)
     {
-        GameManager.Instacne.sceneManger.ChangeScene(nextScene.name);
+        if (sceneLoading == true)
+            return;
+
+        sceneLoading = true;        
+        GameManager.Instacne.sceneManger.ChangeScene(nextSceneName);
     }
 
     public override void OnExitScene()
