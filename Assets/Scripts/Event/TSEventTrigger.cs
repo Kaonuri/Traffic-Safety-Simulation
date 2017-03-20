@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using Ultimate;
+using UnityEngine;
 
 public class TSEventTrigger : MonoBehaviour
 {
     [SerializeField] private TSEvent firstEvent;
+    [SerializeField] private AudioClip audioClip;
+
+    public AudioSource audioSource;
 
     protected virtual void OnTriggerEnter(Collider enterColl)
     {
@@ -12,6 +16,8 @@ public class TSEventTrigger : MonoBehaviour
         if(firstEvent != null)
             firstEvent.StartEvent();
 
+        audioSource.PlayOneShot(audioClip);
+        
         gameObject.SetActive(false);
     }
 

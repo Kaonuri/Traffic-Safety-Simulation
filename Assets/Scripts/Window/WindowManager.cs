@@ -6,16 +6,22 @@ public class WindowManager : MonoBehaviour
     public HierarchyManager hierarchyManager { private set; get; }
     public CanvasGroup canvasGroup { private set; get; }
 
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
+
     private void Awake()
     {
         GameManager.Instacne.SetWindowManger(this);
         hierarchyManager = GetComponent<HierarchyManager>();
-        hierarchyManager.onActivateHierarchy += OnActiveHandler;
-        hierarchyManager.onDeactiveHierarchy += OnDeactiveHandler;
+        hierarchyManager.onActivateHierarchy += OnActivateHandler;
+        hierarchyManager.onDeactivateHierarchy += OnDeactivateHandler;
+        hierarchyManager.onChangeHierarchy += OnChangeHandler;
     }
 
-    public void OnActiveHandler()
+    public void OnActivateHandler()
     {
+        audioSource.PlayOneShot(audioClips[1]);
+
         var centerEyeAnchor = GameManager.Instacne.player.centerEyeAnchor;
 
         transform.localPosition = new Vector3(centerEyeAnchor.localPosition.x, transform.localPosition.y, centerEyeAnchor.localPosition.z);
@@ -34,8 +40,14 @@ public class WindowManager : MonoBehaviour
         airVRPointer.isEnabled = true;
     }
 
-    public void OnDeactiveHandler()
+    public void OnChangeHandler()
     {
+        audioSource.PlayOneShot(audioClips[1]);
+    }
+
+    public void OnDeactivateHandler()
+    {
+        audioSource.PlayOneShot(audioClips[2]);
 
         var airVRPointer = GameManager.Instacne.player.airVRCameraRig.pointer;
 
@@ -46,5 +58,10 @@ public class WindowManager : MonoBehaviour
         }
 
         airVRPointer.isEnabled = false;
+    }
+
+    public void PlayMotorcyclePanelSound()
+    {
+        audioSource.PlayOneShot(audioClips[0]);
     }
 }

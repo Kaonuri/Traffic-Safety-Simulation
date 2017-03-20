@@ -3,6 +3,9 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip[] footstepClips;
+
     public Transform centerEyeAnchor { private set; get; }
     public AirVRCameraRig airVRCameraRig { private set; get; }
     
@@ -16,6 +19,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         GameManager.Instacne.SetPlayer(this);
+
+        audioSource = GetComponent<AudioSource>();
 
         centerEyeAnchor = Camera.main.transform;
         airVRCameraRig = GetComponentInChildren<AirVRCameraRig>();
@@ -31,12 +36,27 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(AirVRInput.GetButton(airVRCameraRig, AirVRInput.Touchpad.Button.BackButton))
+        {
+            GameManager.Instacne.sceneManger.ChangeScene("Title");
+        }
+
         if (canMove)
         {
             if (AirVRInput.GetButton(airVRCameraRig, AirVRInput.Touchpad.Button.Touch))
             {
                 Move();
-            }            
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = footstepClips[Random.Range(0, footstepClips.Length - 1)];
+                    audioSource.Play();
+                }
+            }
+
+            else
+            {
+                audioSource.Stop();
+            }
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ultimate;
+using UnityEngine;
 using Time = Ultimate.Time;
 
 public class TSEventDeactivateWindow : TSEvent
